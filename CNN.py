@@ -19,6 +19,8 @@ tpu_strategy = tf.distribute.experimental.TPUStrategy(tpu)
 df = pd.read_csv('twitter_racism_parsed_dataset.csv')
 pd.set_option("display.max.columns", None)
 df.drop(['index', 'id', 'Annotation'], inplace=True, axis=1)
+
+# Data Preprocessing
 # Removing special characters
 def removeSpecialCharacter(v):
     c = "".join([r for r in v if ('A' <= r <= 'Z') or ('a' <= r <= 'z') or (r == " ")])
@@ -51,11 +53,11 @@ for i in X_train:
 for i in X_test:
     testList.append(i)
     
-#split the data
+#splitting data
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(X_train)
 
-# Padding the data samples to a maximum review length
+# Padding the data samples to the maximum post length
 vect_train = pad_sequences(tokenizer.texts_to_sequences(trainList))
 vect_test = pad_sequences(tokenizer.texts_to_sequences(testList))
 
@@ -65,11 +67,8 @@ with tpu_strategy.scope():
     # Initialize a sequential CNN model
     model = Sequential()
     
-    # Convert each word into a fixed length vector of defined size. 
     model.add(Embedding(input_dim=len(tokenizer.word_index) + 1, output_dim=128))
-    
-    # Conv1D: Find features and apply filters
-    # MaxPooling1D: Downsize and keep the important features
+
     model.add(Conv1D(filters=60, kernel_size=len(tokenizer.word_index) + 1,
                      padding='same', activation='relu'))
     model.add(MaxPooling1D())
@@ -78,17 +77,14 @@ with tpu_strategy.scope():
                      padding='same', activation='relu'))
     model.add(MaxPooling1D())
     
-    # Build all needed connections
     model.add(Dense(128, activation='relu'))
     model.add(Dense(64, activation='relu'))
     model.add(Dense(32, activation='relu'))
     model.add(Dense(1, activation='sigmoid'))
     
-    # Configure the model with our metrics
     model.compile(loss='binary_crossentropy', optimizer='adam',
                   metrics=['accuracy'], steps_per_execution=64)
     
-    # Prints a summary of the model and its parameters
     model.summary()
 
 
