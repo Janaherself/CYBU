@@ -25,21 +25,26 @@ Started from scratch, CYBU was built with least experience in data mining, text 
 
 <p align="center">
 
-  <img height="35px" src="/tools/python.png" title="Python"> <br>
-  obviously, Python is the main language anyone can use to develop any artificial intelligence application. <br><br>
+  <img height="35px" src="/tools/python.png" title="Python"> 
+  <br>
+  Obviously, Python is the main language anyone can use to develop any Artificial Intelligence application. <br><br>
   <img height="35px" src="/tools/kaggle.png" title="Kaggle">
-  <img height="35px" src="/tools/pycharm.png" title="PyCharm"> <br>
-  both of PyCharm and Kaggle were used to build, run and test models. in addition, accelerators in kaggle boosted the process of training models. <br><br>
+  <img height="35px" src="/tools/pycharm.png" title="PyCharm"> 
+  <br>
+  Both of PyCharm and Kaggle were used to build, run and test models. <br><br>
   <img height="35px" src="/tools/pandas.png" title="Pandas">
   <img height="35px" src="/tools/numpy.png" title="Numpy">
   <img height="35px" src="/tools/sklearn.png" title="Sci-Kit Learn">
   <img height="35px" src="/tools/tensorflow.png" title="TensorFlow">
-  <img height="35px" src="/tools/keras.png" title="Keras"> <br>
-  among many related libraries, we make use of the ones above. <br><br>
-  <img height="35px" src="/tools/facepager.png" title="FacePager">  <br>
+  <img height="35px" src="/tools/keras.png" title="Keras"> 
+  <br>
+  Among many related libraries, we make use of the ones above. <br><br>
+  <img height="35px" src="/tools/facepager.png" title="FacePager"> 
+  <br>
   #1 tool in web scrabing took a huge place in the first couple of phases. <br><br>
-  <img height="35px" src="/tools/figma.png" title="Figma">  <br>
-  no doubt, Figma was our first option to design user interfaces.
+  <img height="35px" src="/tools/figma.png" title="Figma"> 
+  <br>
+  No doubt, Figma was our first option to design user interfaces.
   <br>
   
 </p>
